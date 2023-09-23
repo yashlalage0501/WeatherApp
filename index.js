@@ -7,12 +7,12 @@ import dotenv from 'dotenv';
 // Load environment variables from .env file
 dotenv.config();
 
-
 const app = express();
 const port = 3000;
 
 const url = "https://api.openweathermap.org/data/2.5/weather";
-const apiKey = process.env.API_KEY;
+// put api key from open weather map 
+const apiKey = process.env.API_KEY; 
 
 // middleweares
 app.use(express.static("public"));
