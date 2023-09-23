@@ -1,0 +1,111 @@
+body {
+  max-width: 100%;
+  background-image: url(../images/background-3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.main-card {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 2rem 2.5rem;
+  border-radius: 1px solid transparent;
+  backdrop-filter: blur(1rem);
+  box-shadow: 1.3rem 1.3rem 1.3rem rgba(0, 0, 0, 0.5);
+  border-top-color: rgba(225, 225, 225, 0.5);
+  border-bottom-color: rgba(225, 225, 225, 0.1);
+  border-left-color: rgba(225, 225, 225, 0.5);
+  border-right-color: rgba(225, 225, 225, 0.1);
+  background-color: rgba(225, 225, 225, 0.1);
+}
+
+.main-card-image {
+  height: 70px;
+  width: 70px;
+}
+
+.main-card-temp {
+  font-size: 4rem;
+}
+
+.main-card-city {
+  font-size: 3rem;
+}
+
+.main-card-desc {
+  font-size: 2rem;
+}
+
+.info-card h5 {
+  font-size: 30px;
+}
+
+.info-card h6 {
+  font-size: 40px;
+}
+
+.commonPlaces {
+  border-radius: 1px solid transparent;
+  backdrop-filter: blur(1rem);
+  box-shadow: 1.3rem 1.3rem 1.3rem rgba(0, 0, 0, 0.5);
+  border-top-color: rgba(225, 225, 225, 0.5);
+  border-bottom-color: rgba(225, 225, 225, 0.1);
+  border-left-color: rgba(225, 225, 225, 0.5);
+  border-right-color: rgba(225, 225, 225, 0.1);
+  background-color: rgba(225, 225, 225, 0.1);
+  margin: 10px;
+  margin-bottom: 25px;
+  margin-right: 0;
+}
+
+.center-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.second-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.second-input {
+  width: 20rem;
+  border-radius: 10px;
+  border-radius: 1px solid transparent;
+  backdrop-filter: blur(1rem);
+  box-shadow: 1.3rem 1.3rem 1.3rem rgba(0, 0, 0, 0.5);
+  background-color: rgba(225, 225, 225, 0.1);
+  margin-bottom: 20px;
+}
+
+.second-search {
+  border-radius: 100%;
+}
+
+.commonPlaces h5 {
+  font-size: 2rem;
+}
+
+.commonPlaces h6 {
+  font-size: 1.9rem;
+}
+
+.commonPlaces p {
+  font-size: 1.3rem;
+}
+
+footer{
+  background-color: #e3f2fd;
+  padding: 10px;
+  text-align: center;
+  margin: 0;
+}
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link rel="icon" href="icon/logo.png" />
+    <!-- bootstrap cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    
+      <!-- navbar -->
+      <nav
+        class="navbar navbar-light navbar-expand-sm"
+        style="background-color: #e3f2fd"
+      >
+        <a class="navbar-brand" href="#">
+          <i class="mx-2 fa-solid fa-cloud-bolt"></i>
+          Weather App
+        </a>
+        <!-- sandwitch button to shows all buttons in "collapse navbar-collapse" div after perticular breakpoint -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <form class="ms-auto me-5" autocomplete="off" action="/" method="post">
+            <input
+              class="search h-auto"
+              type="search"
+              placeholder="Search"
+              id="city"
+              name="city"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-outline-success my-2 my-sm-0 h-auto"
+              type="submit"
+            >
+              City <i class="fa-solid fa-magnifying-glass fa-fade"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+    
+
+    <main>
+      <section class="userInput">
+        <% if(locals.content){ %>
+        <!-- main card > windspeed card , humidity card , clouds card , visibility card -->
+        <div class="card main-card text-center">
+          <div class="card-body">
+            <!-- full date -->
+            <h2 class="date">
+              <%= fullDate.day %> <%= fullDate.date %>'<%= fullDate.month %> ,
+              <%= fullDate.year %>
+            </h2>
+            <!-- info -->
+            <h5 class="card-title main-card-city">
+              <%= content.city %> <i class="fa-solid fa-location-dot"></i>
+            </h5>
+            <p class="card-text main-card-desc"><%= content.desc %></p>
+            <img class="main-card-image" src=<%= content.icon %> alt="icon">
+            <p class="main-card-temp"><%= content.temp %>°C</p>
+            <!-- card group to grop cards of other info -->
+            <div class="card-group gx-lg-5">
+              <!-- windspeed card -->
+              <div
+                class="card bg-transparent border-dark info-card text-center"
+              >
+                <div class="card-body">
+                  <i class="mb-3 fa-solid fa-wind fa-lg"></i>
+                  <h5 class="card-title">Wind</h5>
+                  <h6><%= content.windSpeed %> m/s</h6>
+                </div>
+              </div>
+              <!-- humidity card -->
+              <div
+                class="card bg-transparent border-dark info-card text-center"
+              >
+                <div class="card-body">
+                  <i class="mb-3 fa-solid fa-droplet fa-lg"></i>
+                  <h5 class="card-title">Humidity</h5>
+                  <h6><%= content.humidity %> %</h6>
+                </div>
+              </div>
+              <!-- clouds card -->
+              <div
+                class="card bg-transparent border-dark info-card text-center"
+              >
+                <div class="card-body">
+                  <i class="mb-3 fa-solid fa-cloud fa-lg"></i>
+                  <h5 class="card-title">clouds</h5>
+                  <h6><%= content.clouds %> %</h6>
+                </div>
+              </div>
+              <!-- visibility card -->
+              <div
+                class="card bg-transparent border-dark info-card text-center"
+              >
+                <div class="card-body">
+                  <i class="mb-3 fa-solid fa-eye fa-lg"></i>
+                  <h5 class="card-title">visibility</h5>
+                  <h6><%= content.visibility %> M</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } else { %>
+        <h1 class="center-title">Search The City</h1>
+        <div class="second-form">
+          <form autocomplete="off" action="/" method="post">
+            <input
+              class="second-input"
+              type="text"
+              placeholder="Search"
+              id="city"
+              name="city"
+            />
+            <button class="second-search" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+        <% } %>
+      </section>
+
+      <hr />
+
+      <section id="anotherCities">
+        <h1 class="center-title">Weather of other common places</h1>
+
+        <div class="row mx-0 row-cols-1 row-cols-sm-1 row-cols-xs-1 row-cols-md-3">
+          <div class="col">
+            <div class="card commonPlaces text-center">
+              <div class="card-body">
+                <h5 class="card-title">
+                  pune <i class="fa-solid fa-location-dot"></i>
+                </h5>
+                <h6><%= puneWeather.temp %>°C</h6>
+                <p class="card-text"><%= puneWeather.desc %></p>
+                <p class="card-text">Humidity - <%= puneWeather.humidity %>%</p>
+                <p class="card-text">Wind - <%= puneWeather.windSpeed %>m/s</p>
+                <p class="card-text">Clouds - <%= puneWeather.clouds %>%</p>
+                <p class="card-text">
+                  Visibility - <%= puneWeather.visibility %>m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card commonPlaces text-center">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Mumbai <i class="fa-solid fa-location-dot"></i>
+                </h5>
+                <h6><%= mumbaiWeather.temp %>°C</h6>
+                <p class="card-text"><%= mumbaiWeather.desc %></p>
+                <p class="card-text">
+                  Humidity - <%= mumbaiWeather.humidity %>%
+                </p>
+                <p class="card-text">
+                  Wind - <%= mumbaiWeather.windSpeed %>m/s
+                </p>
+                <p class="card-text">Clouds - <%= mumbaiWeather.clouds %>%</p>
+                <p class="card-text">
+                  Visibility - <%= mumbaiWeather.visibility %>m
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card commonPlaces text-center">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Delhi <i class="fa-solid fa-location-dot"></i>
+                </h5>
+                <h6><%= delhiWeather.temp %>°C</h6>
+                <p class="card-text"><%= delhiWeather.desc %></p>
+                <p class="card-text">
+                  Humidity - <%= delhiWeather.humidity %>%
+                </p>
+                <p class="card-text">Wind - <%= delhiWeather.windSpeed %>m/s</p>
+                <p class="card-text">Clouds - <%= delhiWeather.clouds %>%</p>
+                <p class="card-text">
+                  Visibility - <%= delhiWeather.visibility %>m
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+        <footer>
+            Copyright @ yash lalage ' 2023
+        </footer>
+
+
+    <!-- bootstrap cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- font awsome cdn -->
+    <script
+      src="https://kit.fontawesome.com/c555a07106.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
